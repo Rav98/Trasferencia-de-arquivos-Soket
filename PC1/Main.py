@@ -15,7 +15,7 @@ ObjSocket.listen(1)
 
 # Confirmo a conexao com o outro PC
 conexao, endereco = ObjSocket.accept()
-print("Conectado em:"+conexao+":"+endereco)
+print('Conectado com:', endereco)
 
 # Abro o arquivo que vou escrever os dados recebidos
 arq = open('tracker.txt', 'wb')
