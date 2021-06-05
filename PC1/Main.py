@@ -1,8 +1,10 @@
 # serv_sock.py
 import socket
 import os
+
+# Local onde o tracker esta
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-my_file = os.path.join(THIS_FOLDER, 'tracker.txt')
+local_tracker = os.path.join(THIS_FOLDER, 'tracker.txt')
 
 # Definicao de uma variavel x para o menu da aplicacao
 x = 1
@@ -31,7 +33,6 @@ def servidor():
     resposta = conexao.recv(1024)
 
     arq = open(resposta.decode(), 'rb')
-    print(resposta.decode())
     # Mando o arquivo
     ObjSocket.sendfile(arq)
 
@@ -45,13 +46,13 @@ def cliente():
     nome_arquivo = input()
 
     # Procura no tracker
-    tracker = open(my_file, 'r')
+    tracker = open(local_tracker, 'r')
     print("\nPesquisando no tracker.....")
 
     # Executa um loop dentro do arquivo
     for line in tracker:
         # Le a linha do arquivo
-        
+
         # Se essa linah tem o arquivo que preciso....
         separa = line.split()
         if(separa[0] == nome_arquivo):
@@ -61,7 +62,7 @@ def cliente():
             # Faço a conexao no IP e Porta
             # Estabelecer conexão com esse PC
             try:
-                ObjSocket.connect((hostArq, int (portArq)))
+                ObjSocket.connect((hostArq, int(portArq)))
                 print('Conexão concluida!\n')
                 ObjSocket.sendall(str.encode(nome_arquivo))
                 # Receber o arquivo
