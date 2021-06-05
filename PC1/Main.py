@@ -1,5 +1,8 @@
 # serv_sock.py
 import socket
+import os
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+my_file = os.path.join(THIS_FOLDER, 'tracker.txt')
 
 # Definicao de uma variavel x para o menu da aplicacao
 x = 1
@@ -27,8 +30,8 @@ def servidor():
     # Cliente, neste ponto, estara enviando o nome do arquivo solicitado
     resposta = conexao.recv(1024)
 
-    arq = open(resposta, 'rb')
-
+    arq = open(resposta.decode(), 'rb')
+    print(resposta.decode())
     # Mando o arquivo
     ObjSocket.sendfile(arq)
 
@@ -42,22 +45,23 @@ def cliente():
     nome_arquivo = input()
 
     # Procura no tracker
-    tracker = open('tracker.txt', 'r')
+    tracker = open(my_file, 'r')
     print("\nPesquisando no tracker.....")
 
     # Executa um loop dentro do arquivo
     for line in tracker:
         # Le a linha do arquivo
-        linha = line.readline()
+        
         # Se essa linah tem o arquivo que preciso....
-        if(linha.split(0) == nome_arquivo):
+        separa = line.split()
+        if(separa[0] == nome_arquivo):
             # Tracker retorna quem tem, lê host e porta
-            hostArq = linha.split(1)
-            portArq = linha.split(2)
+            hostArq = separa[1]
+            portArq = separa[2]
             # Faço a conexao no IP e Porta
             # Estabelecer conexão com esse PC
             try:
-                ObjSocket.connect((hostArq, portArq))
+                ObjSocket.connect((hostArq, int (portArq)))
                 print('Conexão concluida!\n')
                 ObjSocket.sendall(str.encode(nome_arquivo))
                 # Receber o arquivo
@@ -89,7 +93,7 @@ def cliente():
 while x:
     print("====================================================")
     print("\n -> Pressione C para solicitar um arquivo")
-    print("\n -> Pressione S para solicitar um arquivo")
+    print("\n -> Pressione S para Servidor")
     print("\n -> Pressione X para sair da aplicação\n")
     opcao = input()
 
