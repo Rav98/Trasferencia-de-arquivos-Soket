@@ -1,17 +1,15 @@
 # serv_sock.py
 import socket
 import os
-
-# Local onde o tracker esta
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-local_tracker = os.path.join(THIS_FOLDER, 'tracker.txt')
+my_file = os.path.join(THIS_FOLDER, 'tracker.txt')
 
 # Definicao de uma variavel x para o menu da aplicacao
 x = 1
 
 # Define IP  e Porta
 HOST = 'localhost'
-PORT = 1111
+PORT = 2222
 
 # Faz a configuração do Socket com os protocolos IPV4/TCP e configura o IP e Porta
 ObjSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -32,12 +30,9 @@ def servidor():
     # Cliente, neste ponto, estara enviando o nome do arquivo solicitado
     resposta = conexao.recv(1024)
 
-    arq = open(resposta.decode(), 'rb')
-    # Mando o arquivo
-    ObjSocket.sendfile(arq)
-
-    # Fecho o arquivo
-    arq.close()
+    with open (resposta, 'rb') as file:
+        for data in file.readlines():
+            conexao.send(data)
 
 
 def cliente():
@@ -46,13 +41,13 @@ def cliente():
     nome_arquivo = input()
 
     # Procura no tracker
-    tracker = open(local_tracker, 'r')
+    tracker = open(my_file, 'r')
     print("\nPesquisando no tracker.....")
 
     # Executa um loop dentro do arquivo
     for line in tracker:
         # Le a linha do arquivo
-
+        
         # Se essa linah tem o arquivo que preciso....
         separa = line.split()
         if(separa[0] == nome_arquivo):
@@ -62,27 +57,28 @@ def cliente():
             # Faço a conexao no IP e Porta
             # Estabelecer conexão com esse PC
             try:
+                print(hostArq, portArq)
                 ObjSocket.connect((hostArq, int(portArq)))
+                
                 print('Conexão concluida!\n')
                 ObjSocket.sendall(str.encode(nome_arquivo))
                 # Receber o arquivo
                 # Envio o arquivo solicitado
-                while 1:
-                    dados = ObjSocket.recv(1024)
-                    if not dados:
-                        break
-                # Salvar o arquivo
-                arq = open(nome_arquivo, 'wb')
-                arq.write(dados)
-                arq.close()
+                with open(nome_arquivo, 'wb') as file:
+                    while(1):
+                        data = ObjSocket.recv(1000000)
+                        if not data:
+                            break
+                        file.write(data)
                 # Atualiza o tracker
                 # Fecho o tracker em modo de leitura
                 tracker.close()
                 # Abro o tracker em modo de atualização
                 tracker = open('tracker.txt', 'a')
                 print("\nAtualizando o tracker.....")
-                tracker.write(nome_arquivo+' '+HOST+' '+PORT+'\n')
+                tracker.write('\n'+nome_arquivo+' '+str (HOST)+' '+str (PORT))
                 tracker.close()
+                break
 
             except socket.error:
                 print('\nConexão indisponivel, tentando outra conexao')
