@@ -3,7 +3,7 @@ import socket
 import os
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 my_file = os.path.join(THIS_FOLDER, 'tracker.txt')
-listapcs = [1111, 2222]
+listapcs = [1111, 2222, 3333] 
 
 # Definicao de uma variavel x para o menu da aplicacao
 x = 1
@@ -106,24 +106,25 @@ def cliente():
                 # Compartilhar o tracker entre todos os computadores da rede
                 print("\nTracker atualizado. Tracker será compartilhado com os computadores da rede.")
                 cont = 0 # Contador do vetor de pcs
+                print("\nColoque todos os demais computadores em modo de RECEBIMENTO DE TRACKER. Digite S quando concluir.")
+                # Solicitamos que todos os demais computadores estejam em modo servidor para que possam receber tracker atualizado
+                continuar = 'n'
+                continuar = input();
                 for n in listapcs:
-                    # Solicitamos que todos os demais computadores estejam em modo servidor para que possam receber tracker atualizado
-                    continuar = 'n'
-                    print("\nColoque todos os demais computadores em modo de RECEBIMENTO DE TRACKER. Digite S quando concluir.")
-                    continuar = input();
                     # Após confirmação do usuário:
                     if continuar == 's' or continuar == 'S':
                         cont = cont + 1
                         if n != PORT:
                             try:
-                                print("Valor de n: ", n)
+                                ObjSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                                 # Conexão com o computador:
-                                ObjSocket.connect((hostArq, 1111))
-                                print('Conexão concluída com pc', cont)
+                                ObjSocket.connect(('localhost', n))
+                                print("Conexão concluída com pc", cont)
                                 # Envio do tracker:
                                 with open (my_file, 'rb') as file:
                                     for data in file.readlines():
                                         ObjSocket.send(data)
+                                print("O pc", cont, " recebeu o tracker atualizado.")
                                 ObjSocket.close()
                             except socket.error:
                                 print("\nErro de conexão")
