@@ -32,4 +32,11 @@ Foram utilizadas as seguintes tecnologias na construção da aplicação:
  <br />
  <sub><b>Flávio Mota Gomes</b></sub></a> <a href="https://www.linkedin.com/in/fl%C3%A1vio-mota-gomes/ title="LinkedIn">:desktop_computer:</a>
  
+ ---
+ <a href="https://www.linkedin.com/in/rafael-antunes-vieira-313a15159/">
+ <img style="border-radius: 50%;" src="https://media-exp3.licdn.com/dms/image/C4E03AQFClLf0d6WxeA/profile-displayphoto-shrink_400_400/0/1613591915560?e=1630540800&v=beta&t=chyJzEPtoK5bTYjNsWJ07P3alG2slj7PanlQ4X7bdis" width="100px;" alt=""/>
+ <br />
+ <sub><b>Rafael Antunes Vieria</b></sub></a> <a href="https://www.linkedin.com/in/rafael-antunes-vieira-313a15159/ title="LinkedIn">:desktop_computer:</a>
+ 
+ 
 Desenvolvido por Alef de Paula, Flávio Mota, Rafael Antunes 
