@@ -5,7 +5,7 @@ Aplicação que faz uso de sockets para transferência de arquivos.
 O projeto concluido com sucesso 
 
 ### Pré requisitos
-Para executar o projeto é necessário antes ter instalado em sua máquina o [Python](https://www.python.org/). Além dele utilizamos o [VSCode] para desenvolvimento do código, mas a IDE [PyCharm] também é recomendada.
+Para executar o projeto é necessário antes ter instalado em sua máquina o [Python](https://www.python.org/). Além dele utilizamos o [VSCode](https://code.visualstudio.com/) para desenvolvimento do código, mas a IDE [PyCharm](https://www.jetbrains.com/pt-br/pycharm/download/) também é recomendada.
 
 
 ### Tecnologias utilizadas :hammer_and_wrench:
