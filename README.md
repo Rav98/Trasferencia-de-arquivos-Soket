@@ -38,5 +38,7 @@ Foram utilizadas as seguintes tecnologias na construção da aplicação:
  <br />
  <sub><b>Rafael Antunes Vieria</b></sub></a> <a href="https://www.linkedin.com/in/rafael-antunes-vieira-313a15159/ title="LinkedIn">:desktop_computer:</a>
  
+
+ 
  
 Desenvolvido por Alef de Paula, Flávio Mota, Rafael Antunes 
