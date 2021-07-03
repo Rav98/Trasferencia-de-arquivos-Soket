@@ -26,10 +26,4 @@ Foram utilizadas as seguintes tecnologias na construção da aplicação:
  <br />
  <sub><b>Alef de Paula</b></sub></a> <a href="https://www.linkedin.com/in/alef-paula-aa98041ba/ title="LinkedIn">🚀</a>
  
- <a href="https://www.linkedin.com/in/fl%C3%A1vio-mota-gomes/">
- <img style="border-radius: 50%;" src="https://media-exp3.licdn.com/dms/image/C4E03AQHyRVRTEeBBHA/profile-displayphoto-shrink_800_800/0/1529179020986?e=1630540800&v=beta&t=GPxWJSwTC0UI1_Xq4LfzWe4idiXBi2rnuaPXhxrBZe8"100px;" alt=""/>
- <br />
- <sub><b>Alef de Paula</b></sub></a> <a href="https://www.linkedin.com/in/fl%C3%A1vio-mota-gomes/"LinkedIn"></a>
-
-
 Desenvolvido por Alef de Paula, Flávio Mota, Rafael Antunes 
