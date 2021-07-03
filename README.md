@@ -11,6 +11,9 @@ Para executar o projeto é necessário antes ter instalado em sua máquina o [Py
 ### Tecnologias utilizadas
 Foram utilizadas as seguintes tecnologias na construção da aplicação:
 
--[Python](https://www.python.org/) &nbsp;
+-[Python](https://www.python.org/)
+
+
+
 -[FTP](https://pt.wikipedia.org/wiki/File_Transfer_Protocol)
 -[Socket](https://realpython.com/python-sockets/)
