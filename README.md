@@ -1,4 +1,4 @@
-# Trasferencia-de-arquivos-Soket
+# Trasferencia-de-arquivos-Soket :computer:
 Aplicação que faz uso de sockets para transferência de arquivos.
 
 ### Status do Projeto
