@@ -137,6 +137,7 @@ def cliente():
 # para que possa ficar sempre disponivel para transfeir arquivo
 
 while x:
+    print("======================PC1===========================")
     print("====================================================")
     print("\n -> Pressione C para solicitar um arquivo")
     print("\n -> Pressione S para Servidor")
