@@ -2,7 +2,7 @@
 Aplicação que faz uso de sockets para transferência de arquivos.
 
 ### Status do Projeto :white_check_mark:
-O projeto concluido com sucesso 
+O projeto foi concluido com sucesso 
 
 ### Pré requisitos
 Para executar o projeto é necessário antes ter instalado em sua máquina o [Python](https://www.python.org/). Além dele utilizamos o [VSCode](https://code.visualstudio.com/) para desenvolvimento do código, mas a IDE [PyCharm](https://www.jetbrains.com/pt-br/pycharm/download/) também é recomendada.
